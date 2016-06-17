@@ -1,16 +1,27 @@
 <p id="notice"><%= notice %></p>
 
- <div class="jumbotron">
-<h1>Paver Lookup</h1>
-</div>
 
+ <div class="row">
+    <div class="col-md-6">
+       <img src="veterans.jpeg" class="img-thumbnail" alt="Veterans Image" width="604" height="200">
+  </div>
+    <div class="col-md-6">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3805.474821790624!2d-77.0455412!3d38.8890473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1466204205129" width="550" height="210" frameborder="0" style="border:0" allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+ 
+ 
+<br>
 <%= form_tag(paver_apps_path, :method => "get", id: "search-form") do %>
 <%= label_tag(:q, "Enter First or Last Name:") %>
 <%= text_field_tag :search, params[:search], placeholder: "Search Pavers" %>
 <%= submit_tag "Search" %>
 <% end %>
-
-<table class="table">
+<br>
+<div class="bg-success">
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -38,14 +49,18 @@
         <td><%= paver_app.Placement %></td>
         <td><%= paver_app.Row %></td>
         <td><%= paver_app.Col %></td>
-        <td><%= link_to 'Show', paver_app %></td>
-        <td><%= link_to 'Edit', edit_paver_app_path(paver_app) %></td>
-        <td><%= link_to 'Destroy', paver_app, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+   <!--      <td><%= link_to 'Show', paver_app %></td> -->
+  <!--       <td><%= link_to 'Edit', edit_paver_app_path(paver_app) %></td> -->
+  <!--       <td><%= link_to 'Destroy', paver_app, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
 <%= link_to 'New Paver', new_paver_app_path %>
+</div>
+<br><br><br>
+
+
+
+
