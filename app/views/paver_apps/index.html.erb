@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+ <div class="jumbotron">
 <h1>Paver Lookup</h1>
+</div>
+
+<%= form_tag(paver_apps_path, :method => "get", id: "search-form") do %>
+<%= label_tag(:q, "Enter First or Last Name:") %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Pavers" %>
+<%= submit_tag "Search" %>
+<% end %>
 
 <table class="table">
   <thead>

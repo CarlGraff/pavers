@@ -5,6 +5,11 @@ class PaverAppsController < ApplicationController
   # GET /paver_apps.json
   def index
     @paver_apps = PaverApp.all
+    if params[:search]
+        @paver_apps = PaverApp.search(params[:search]).order("created_at DESC")
+        else
+        @paver_apps = PaverApp.where("Name = 'XYZ'")
+    end
   end
 
   # GET /paver_apps/1
