@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Paver Apps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Line1</th>
+      <th>Line2</th>
+      <th>Line3</th>
+      <th>Line4</th>
+      <th>Paver</th>
+      <th>Placement</th>
+      <th>Row</th>
+      <th>Col</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @paver_apps.each do |paver_app| %>
+      <tr>
+        <td><%= paver_app.Name %></td>
+        <td><%= paver_app.Line1 %></td>
+        <td><%= paver_app.Line2 %></td>
+        <td><%= paver_app.Line3 %></td>
+        <td><%= paver_app.Line4 %></td>
+        <td><%= paver_app.Paver %></td>
+        <td><%= paver_app.Placement %></td>
+        <td><%= paver_app.Row %></td>
+        <td><%= paver_app.Col %></td>
+        <td><%= link_to 'Show', paver_app %></td>
+        <td><%= link_to 'Edit', edit_paver_app_path(paver_app) %></td>
+        <td><%= link_to 'Destroy', paver_app, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Paver app', new_paver_app_path %>

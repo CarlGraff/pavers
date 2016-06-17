@@ -1,0 +1,53 @@
+<%= form_for(@paver_app) do |f| %>
+  <% if @paver_app.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@paver_app.errors.count, "error") %> prohibited this paver_app from being saved:</h2>
+
+      <ul>
+      <% @paver_app.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Name %><br>
+    <%= f.text_area :Name %>
+  </div>
+  <div class="field">
+    <%= f.label :Line1 %><br>
+    <%= f.text_area :Line1 %>
+  </div>
+  <div class="field">
+    <%= f.label :Line2 %><br>
+    <%= f.text_area :Line2 %>
+  </div>
+  <div class="field">
+    <%= f.label :Line3 %><br>
+    <%= f.text_area :Line3 %>
+  </div>
+  <div class="field">
+    <%= f.label :Line4 %><br>
+    <%= f.text_area :Line4 %>
+  </div>
+  <div class="field">
+    <%= f.label :Paver %><br>
+    <%= f.text_area :Paver %>
+  </div>
+  <div class="field">
+    <%= f.label :Placement %><br>
+    <%= f.text_area :Placement %>
+  </div>
+  <div class="field">
+    <%= f.label :Row %><br>
+    <%= f.text_area :Row %>
+  </div>
+  <div class="field">
+    <%= f.label :Col %><br>
+    <%= f.text_area :Col %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
