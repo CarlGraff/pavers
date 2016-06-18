@@ -1,20 +1,53 @@
 <p id="notice"><%= notice %></p>
+<style>
+div.wrapperx{
+    float:left; /* important */
+    position:relative; /* important(so we can absolutely position the description div */
+}
+div.descriptionx{
+    position:absolute; /* absolute position (so we can position it where we want)*/
+    top:10px; /* position will be on bottom */
+    left:10px;
+    width:100%;
+    /* styling bellow */
+    background-color:transparent;
+    font-family: 'tahoma';
+    font-size:15px;
+    color:black;
+    opacity:0.9; /* transparency */
+    filter:alpha(opacity=60); /* IE transparency */
+}
+p.description_contentx{
+    text-shadow: 0px 1px 0px rgba(255,255,255,.5);
+    padding:10px;
+    margin:0px;
+}
+
+h1.description_contenty{
+    text-shadow: 0px 1px 0px rgba(255,255,255,.5);
+    padding:10px;
+    margin:0px;
+}
+
+</style>
 
 
-<div class="thumbnail">
-   <img src="../brick.jpeg" alt="..." width="1200" />
-   <div style="position: absolute; top: 7em; left: 20em; width: 400px; font-weight: bold; color: #fff;">
-     <h1>Memorial Brick</h1>
-     <p> <strong>Name:</strong> <%= @paver_app.Name %> </p>
-     <p> <strong>Line1:</strong> <%= @paver_app.Line1 %> </p>
-     <p> <strong>Line2:</strong> <%= @paver_app.Line2 %> </p>
-     <p> <strong>Line3:</strong> <%= @paver_app.Line3 %> </p>
-     <p> <strong>Line4:</strong> <%= @paver_app.Line4 %> </p>
-     <p> <strong>Paver:</strong> <%= @paver_app.Paver %> </p>
-     <p> <strong>Placement:</strong> <%= @paver_app.Placement %> </p>
-     <p> <strong>Row:</strong> <%= @paver_app.Row %> </p>
-     <p> <strong>Col:</strong> <%= @paver_app.Col %> </p>
+<div class='wrapperx'>
+<div class="img-rounded" >
+   <img class="img-responsive" src="../brick.jpg" width="1200" border="0"/>
+   <div class='descriptionx'>
+     <h1 class='description_contenty'> Paver Contents </h1>
+     <p class='description_contentx'> <strong>Name:</strong> <%= @paver_app.Name %> </p>
+     <p class='description_contentx'> <strong>Line1:</strong> <%= @paver_app.Line1 %> </p>
+     <p class='description_contentx'> <strong>Line2:</strong> <%= @paver_app.Line2 %> </p>
+     <p class='description_contentx'> <strong>Line3:</strong> <%= @paver_app.Line3 %> </p>
+     <p class='description_contentx'> <strong>Line4:</strong> <%= @paver_app.Line4 %> </p>
+     <p class='description_contentx'> <strong>Paver:</strong> <%= @paver_app.Paver %> </p>
+     <p class='description_contentx'> <strong>Placement:</strong> <%= @paver_app.Placement %> </p>
+     <p class='description_contentx'> <strong>Row:</strong> <%= @paver_app.Row %> </p>
+     <p class='description_contentx'> <strong>Col:</strong> <%= @paver_app.Col %> </p>
    </div>
+</div>
 </div>
 
 <%= link_to 'Edit', edit_paver_app_path(@paver_app) %> |
