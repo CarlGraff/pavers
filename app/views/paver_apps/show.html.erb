@@ -1,49 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @paver_app.Name %>
-</p>
 
-<p>
-  <strong>Line1:</strong>
-  <%= @paver_app.Line1 %>
-</p>
-
-<p>
-  <strong>Line2:</strong>
-  <%= @paver_app.Line2 %>
-</p>
-
-<p>
-  <strong>Line3:</strong>
-  <%= @paver_app.Line3 %>
-</p>
-
-<p>
-  <strong>Line4:</strong>
-  <%= @paver_app.Line4 %>
-</p>
-
-<p>
-  <strong>Paver:</strong>
-  <%= @paver_app.Paver %>
-</p>
-
-<p>
-  <strong>Placement:</strong>
-  <%= @paver_app.Placement %>
-</p>
-
-<p>
-  <strong>Row:</strong>
-  <%= @paver_app.Row %>
-</p>
-
-<p>
-  <strong>Col:</strong>
-  <%= @paver_app.Col %>
-</p>
+<div class="thumbnail">
+   <img src="../brick.jpeg" alt="..." width="1200" />
+   <div style="position: absolute; top: 7em; left: 20em; width: 400px; font-weight: bold; color: #fff;">
+     <h1>Memorial Brick</h1>
+     <p> <strong>Name:</strong> <%= @paver_app.Name %> </p>
+     <p> <strong>Line1:</strong> <%= @paver_app.Line1 %> </p>
+     <p> <strong>Line2:</strong> <%= @paver_app.Line2 %> </p>
+     <p> <strong>Line3:</strong> <%= @paver_app.Line3 %> </p>
+     <p> <strong>Line4:</strong> <%= @paver_app.Line4 %> </p>
+     <p> <strong>Paver:</strong> <%= @paver_app.Paver %> </p>
+     <p> <strong>Placement:</strong> <%= @paver_app.Placement %> </p>
+     <p> <strong>Row:</strong> <%= @paver_app.Row %> </p>
+     <p> <strong>Col:</strong> <%= @paver_app.Col %> </p>
+   </div>
+</div>
 
 <%= link_to 'Edit', edit_paver_app_path(@paver_app) %> |
-<%= link_to 'Back', paver_apps_path %>
+<%= link_to "Back", paver_apps_path %>
