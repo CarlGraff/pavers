@@ -6,26 +6,29 @@ div.wrapperx{
 }
 div.descriptionx{
     position:absolute; /* absolute position (so we can position it where we want)*/
-    top:10px; /* position will be on bottom */
-    left:10px;
+    top:40px; /* position will be on bottom */
+    left:30px;
+    text-align: center;
     width:100%;
     /* styling bellow */
     background-color:transparent;
     font-family: 'tahoma';
-    font-size:15px;
+    /*font-size:15px;*/
     color:black;
     opacity:0.9; /* transparency */
     filter:alpha(opacity=60); /* IE transparency */
+    line-height: .5;
 }
 p.description_contentx{
     text-shadow: 0px 1px 0px rgba(255,255,255,.5);
-    padding:10px;
+    padding:2px;
     margin:0px;
 }
 
-h1.description_contenty{
+h2.description_contenty{
+    font-size: 4.0vh; 
     text-shadow: 0px 1px 0px rgba(255,255,255,.5);
-    padding:10px;
+    padding:2px;
     margin:0px;
 }
 
@@ -36,16 +39,16 @@ h1.description_contenty{
 <div class="img-rounded" >
    <img class="img-responsive" src="../brick.jpg" width="1200" border="0"/>
    <div class='descriptionx'>
-     <h1 class='description_contenty'> Paver Contents </h1>
-     <p class='description_contentx'> <strong>Name:</strong> <%= @paver_app.Name %> </p>
-     <p class='description_contentx'> <strong>Line1:</strong> <%= @paver_app.Line1 %> </p>
-     <p class='description_contentx'> <strong>Line2:</strong> <%= @paver_app.Line2 %> </p>
-     <p class='description_contentx'> <strong>Line3:</strong> <%= @paver_app.Line3 %> </p>
-     <p class='description_contentx'> <strong>Line4:</strong> <%= @paver_app.Line4 %> </p>
-     <p class='description_contentx'> <strong>Paver:</strong> <%= @paver_app.Paver %> </p>
-     <p class='description_contentx'> <strong>Placement:</strong> <%= @paver_app.Placement %> </p>
-     <p class='description_contentx'> <strong>Row:</strong> <%= @paver_app.Row %> </p>
-     <p class='description_contentx'> <strong>Col:</strong> <%= @paver_app.Col %> </p>
+     <!-- <h2 class='description_contenty'> Paver Contents </h2> -->
+     <h2 class='description_contenty'> Name: <%= @paver_app.Name %> </h2>
+     <h2 class='description_contenty'> Title: <%= @paver_app.Line1 %> </h2>
+     <h2 class='description_contenty'> Life: <%= @paver_app.Line2 %> </h2>
+     <h2 class='description_contenty'> Dispatch Dates: <%= @paver_app.Line3 %> </h2>
+     <h2 class='description_contenty'> City: <%= @paver_app.Line4 %> </h2>
+    <!--  <h2 class='description_contenty'> Paver: <%= @paver_app.Paver %> </h2> -->
+     <h2 class='description_contenty'> Placement: <%= @paver_app.Placement %> </h2>
+     <h2 class='description_contenty'> Row: <%= @paver_app.Row %> </h2>
+     <h2 class='description_contenty'> Col: <%= @paver_app.Col %> </h2>
    </div>
 </div>
 </div>
