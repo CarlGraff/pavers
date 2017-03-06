@@ -10,44 +10,21 @@
       </ul>
     </div>
   <% end %>
+  
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Name"} %>
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Line1"} %>
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Line2"} %>
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Line3"} %>
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Line4"} %>
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Paver"} %>
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Placement"} %>
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Row"} %>
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Col"} %>
 
-  <div class="field">
-    <%= f.label :Name %><br>
-    <%= f.text_area :Name %>
-  </div>
-  <div class="field">
-    <%= f.label :Line1 %><br>
-    <%= f.text_area :Line1 %>
-  </div>
-  <div class="field">
-    <%= f.label :Line2 %><br>
-    <%= f.text_area :Line2 %>
-  </div>
-  <div class="field">
-    <%= f.label :Line3 %><br>
-    <%= f.text_area :Line3 %>
-  </div>
-  <div class="field">
-    <%= f.label :Line4 %><br>
-    <%= f.text_area :Line4 %>
-  </div>
-  <div class="field">
-    <%= f.label :Paver %><br>
-    <%= f.text_area :Paver %>
-  </div>
-  <div class="field">
-    <%= f.label :Placement %><br>
-    <%= f.text_area :Placement %>
-  </div>
-  <div class="field">
-    <%= f.label :Row %><br>
-    <%= f.text_area :Row %>
-  </div>
-  <div class="field">
-    <%= f.label :Col %><br>
-    <%= f.text_area :Col %>
-  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Save Changes" %>
   </div>
+
+</div>
+
 <% end %>
