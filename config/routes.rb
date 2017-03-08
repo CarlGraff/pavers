@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get  '/signup',  to: 'users#new'
-  resources :paver_apps, :users
   root 'paver_apps#index'
-
- end
+  get  '/signup',  to: 'users#new'
+  post '/signup',  to: 'users#create'
+  resources :users, :paver_apps
+end

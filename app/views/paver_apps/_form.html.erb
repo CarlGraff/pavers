@@ -1,3 +1,10 @@
+<% if false %>
+<%= form_for(@paver_app, builder: MyFormBuilder) do |f| %>
+  <%= f.text_field :Name %>
+  <%= f.submit %>
+<% end %>
+<% end %>
+
 <%= form_for(@paver_app) do |f| %>
   <% if @paver_app.errors.any? %>
     <div id="error_explanation">
@@ -11,20 +18,17 @@
     </div>
   <% end %>
   
-  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Name"} %>
-  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Line1"} %>
-  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Line2"} %>
-  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Line3"} %>
-  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Line4"} %>
-  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Paver"} %>
-  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Placement"} %>
-  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Row"} %>
-  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Col"} %>
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Name", :rws => 2} %>
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Line1", :rws => 2} %>
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Line2", :rws => 2} %>
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Line3", :rws => 2} %>
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Line4", :rws => 2} %>
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Paver", :rws => 2} %>
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Placement", :rws => 1} %>
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Row", :rws => 1} %>
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Col", :rws =>1} %>
 
   <div class="actions">
     <%= f.submit "Save Changes" %>
   </div>
-
-</div>
-
 <% end %>
