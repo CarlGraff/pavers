@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+<style>
+div.wrapperx{
+    float:left; /* important */
+    position:relative; /* important(so we can absolutely position the description div */
+}
+div.descriptionx{
+    position:absolute; /* absolute position (so we can position it where we want)*/
+    top:40px; /* position will be on bottom */
+    left:30px;
+    text-align: center;
+    width:100%;
+    /* styling bellow */
+    background-color:transparent;
+    font-family: 'tahoma';
+    /*font-size:15px;*/
+    color:black;
+    opacity:0.9; /* transparency */
+    filter:alpha(opacity=60); /* IE transparency */
+    line-height: .5;
+}
+p.description_contentx{
+    text-shadow: 0px 1px 0px rgba(255,255,255,.5);
+    padding:2px;
+    margin:0px;
+}
+
+h2.description_contenty{
+    font-size: 4.0vh; 
+    text-shadow: 0px 1px 0px rgba(255,255,255,.5);
+    padding:2px;
+    margin:0px;
+}
+</style>
+
+
+<div class='wrapperx'>
+<div class="img-rounded" >
+   <img class="img-responsive" src="../brick.jpg" width="1200" border="0"/>
+   <div class='descriptionx'>
+     <!-- <h2 class='description_contenty'> Paver Contents </h2> -->
+ <!--     <h2 class='description_contenty'> Name: <%= @paver.Name %> </h2> -->
+     <h2 class='description_contenty'> <%= @paver.Line1 %> </h2>
+     <h2 class='description_contenty'> <%= @paver.Line2 %> </h2>
+     <h2 class='description_contenty'> <%= @paver.Line3 %> </h2>
+     <h2 class='description_contenty'> <%= @paver.Line4 %> </h2>
+     <h2 class='description_contenty'> <%= @paver.Line5 %> </h2>
+    <!--  <h2 class='description_contenty'> Paver: <%= @paver.Paver %> </h2> -->
+   <!--   <h2 class='description_contenty'> Placement: <%= @paver.Placement %> </h2> -->
+   <!--   <h2 class='description_contenty'> Row: <%= @paver.Row %> </h2> -->
+   <!--   <h2 class='description_contenty'> Col: <%= @paver.Col %> </h2> -->
+   </div>
+</div>
+</div>
+
+<%= link_to 'Edit', edit_paver_path(@paver) %> |
+<%= link_to "Back", pavers_path %>

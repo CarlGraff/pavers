@@ -11,18 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304212811) do
+ActiveRecord::Schema.define(version: 20170312180628) do
 
-  create_table "paver_apps", force: :cascade do |t|
-    t.text     "Name"
-    t.text     "Line1"
-    t.text     "Line2"
-    t.text     "Line3"
-    t.text     "Line4"
-    t.text     "Paver"
-    t.text     "Placement"
-    t.text     "Row"
-    t.text     "Col"
+  create_table "pavers", force: :cascade do |t|
+    t.string   "Placement"
+    t.string   "Name"
+    t.string   "Logo"
+    t.string   "Line1"
+    t.string   "Line2"
+    t.string   "Line3"
+    t.string   "Line4"
+    t.string   "Line5"
+    t.string   "Paver"
+    t.string   "Row"
+    t.string   "Col"
+    t.string   "PayPal_ID"
+    t.string   "Email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

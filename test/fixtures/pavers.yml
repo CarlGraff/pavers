@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Name: MyText
+  Line1: MyText
+  Line2: MyText
+  Line3: MyText
+  Line4: MyText
+  Paver: MyText
+  Placement: MyText
+  Row: MyText
+  Col: MyText
+
+two:
+  Name: MyText
+  Line1: MyText
+  Line2: MyText
+  Line3: MyText
+  Line4: MyText
+  Paver: MyText
+  Placement: MyText
+  Row: MyText
+  Col: MyText

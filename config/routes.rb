@@ -1,6 +1,9 @@
-Rails.application.routes.draw do
-  root 'paver_apps#index'
+Rails.application.routes.draw do 
+  root 'pavers#index'
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
-  resources :users, :paver_apps
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
+  resources :users, :pavers
 end

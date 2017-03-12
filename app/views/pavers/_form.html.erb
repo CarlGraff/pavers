@@ -1,0 +1,57 @@
+<% if false %>
+<%= form_for(@paver, builder: MyFormBuilder) do |f| %>
+  <%= f.text_field :Name %>
+  <%= f.submit %>
+<% end %>
+<% end %>
+
+<%= form_for(@paver) do |f| %>
+  <% if @paver.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@paver.errors.count, "error") %> prohibited this paver from being saved:</h2>
+
+      <ul>
+      <% @paver.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="form-group", style="padding-left: 15px;">
+  <%= f.label :Paver, class: "control-label" %>
+  <%= f.select :Paver,
+        [['4 x 8 ','4x8'],['8x8 (1 Logo + 4 text lines)','8x8-4'],['8x8 (5 text lines)','8x8-5']],
+        class: "form-control" %>
+ 
+  <%= f.label :Placement, class: "control-label" %>
+  <%= f.select :Placement,
+        [['WWI','WWI'],['WWII','WWII'],['Korea','Korea'],['Vietnam','Vietnam'],
+        ['Gulf War','Gulf War'],['Iraq','Iraq'],['Afghanistan','Afghanistan'],
+        ['Purple Heart','Purple Heart'],['Women in Service','Women in Service'],['POW/MIA','POW/MIA']],
+        class: "form-control"  %> 
+ 
+  <%= f.label :Name, "First and Last ( e.g. James Smith )", class: "control-label" %>
+  <%= f.text_field :Name, :size => 40, :maxlength => 18 %>   
+  </div>
+
+  <div class="form-group", style="padding-left: 15px;">
+    <%= f.label :Logo, class: "control-label" %>
+    <%= f.select :Logo,
+          [['None','None'],['Army','Army'],['Marine Corp','Marine Corp'],['Navy','Navy'],
+          ['Air Force','Air Force'],['Coast Guard','Coast Guard']],
+          class: "form-control" %>
+  </div>
+
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Line1", :rws =>  1,  :sample_txt => "In Memory Of"} %> 
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Line2", :rws => 1, :sample_txt => "Lt. James F. Smith"} %>  
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Line3", :rws => 1, :sample_txt => "US Marine Corps"} %> 
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Line4", :rws => 1, :sample_txt => "Vietnam 1969-1970"} %> 
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Line5", :rws => 1, :sample_txt => "Atlanta GA"} %> 
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Row", :rws => 1, :sample_txt => "Row 4"} %> 
+  <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Col", :rws => 1, :sample_txt => "Column B"} %> 
+<br />
+  <div class="actions">
+    <%= f.submit "Save Changes" %>
+  </div>
+<% end %>
