@@ -26,7 +26,8 @@ ActiveRecord::Schema.define(version: 20170312180628) do
     t.string   "Row"
     t.string   "Col"
     t.string   "PayPal_ID"
-    t.string   "Email"
+    t.text     "Email"
+    t.datetime "Install_Date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

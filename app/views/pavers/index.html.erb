@@ -32,11 +32,29 @@
 </div>
  -->
 <br>
+
+ 
+
+ <div style="float:left;">
+  <%= button_to "Purchase Paver", signup_path, :id => "purchase-dailog-btn",
+        :class => "btn btn-success btn-sm", :method => :get %>
+
+</div> 
+<div style="float:right;">
+  <%= button_to "Admin Login", signup_path, :id => "admin-dailog-btn",
+        :class => "btn btn-default btn-sm", :method => :get %>
+</div> 
+
 <%= form_tag(pavers_path, :method => "get", id: "search-form") do %>
-<%= label_tag(:q, "Enter the First or Last Name:") %>
+<%= label_tag(:q, " ", :style=>'width:50px;') %> 
+<%= label_tag(:q, "   Enter the First or Last Name:") %>
 <%= text_field_tag :search, params[:search], placeholder: "Search Pavers" %>
-<%= submit_tag "Search" %>
-&nbsp; &nbsp; &nbsp;
+
+
+<%= button_tag(type: "submit", class: "new_post_submit") do %>
+  <span><i class="glyphicon glyphicon-search"></i> Search</span>
+<% end %> 
+
 <!-- 
 <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjgioHGnLLNAhUURGMKHfI8BC4QFggcMAA&url=http%3A%2F%2Fwww.johnscreekga.gov%2FParksAndRecreation%2FSeniors%2FJohns-Creek-Veterans-Association.aspx&usg=AFQjCNGqUGrHhqhxJbKBkZFrau78T0rIDw&sig2=8OJwz-ZbEON_xTmyfBj32w&bvm=bv.124817099,d.cGc">Visit Johns Creek Veterans Association WebSite</a>
 <a href="http://www.facebook.com/johnscreekgagov"><span class="fa fa-fw fa-facebook"</span></a>
