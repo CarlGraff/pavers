@@ -53,5 +53,9 @@ h2.description_contenty{
 </div>
 </div>
 
-<%= link_to 'Edit', edit_paver_path(@paver) %> |
+<% if logged_in? %> 
+    <%= link_to 'Edit', edit_paver_path(@paver) %> | 
+<% else %> 
+    <% if @paver.PayPal_ID == 'A1B2'%> <%= link_to 'Edit', edit_paver_path(@paver) %> | <% end -%> 
+<% end -%> 
 <%= link_to "Back", pavers_path %>

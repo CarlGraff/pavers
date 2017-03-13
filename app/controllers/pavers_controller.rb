@@ -75,7 +75,7 @@ class PaversController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paver_params
-      params.require(:paver).permit(:Name, :Logo, :Line1, :Line2, :Line3, :Line4, :Line5, :Paver, :Placement, :Row, :Col, :PayPal_ID)
+      params.require(:paver).permit(:Name, :Logo, :Line1, :Line2, :Line3, :Line4, :Line5, :Paver, :Placement, :Row, :Col, :Install_Date, :Email, :PayPal_ID)
     end
 
 end

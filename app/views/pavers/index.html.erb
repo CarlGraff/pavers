@@ -34,17 +34,24 @@
 <br>
 
  
-
- <div style="float:left;">
-  <%= button_to "Purchase Paver", signup_path, :id => "purchase-dailog-btn",
+ 
+ <div style="float:left;"> 
+  <%= button_to "Purchase Paver", login_path, :id => "purchase-dailog-btn",
         :class => "btn btn-success btn-sm", :method => :get %>
 
 </div> 
+
+<% if !logged_in? %>
 <div style="float:right;">
-  <%= button_to "Admin Login", signup_path, :id => "admin-dailog-btn",
+  <%= button_to "Admin Login", login_path, :id => "admin-dailog-btn",
         :class => "btn btn-default btn-sm", :method => :get %>
 </div> 
-
+<% else %>
+<div style="float:right;">
+  <%= button_to "Logout", {:controller => :sessions, :action => 'destroy', :id => "admin-dailog-btn"},
+         :method => :delete, :class => "btn btn-default btn-sm" %>
+</div> 
+<% end %> 
 <%= form_tag(pavers_path, :method => "get", id: "search-form") do %>
 <%= label_tag(:q, " ", :style=>'width:50px;') %> 
 <%= label_tag(:q, "   Enter the First or Last Name:") %>
@@ -105,7 +112,8 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to 'New Paver', new_paver_path %>
+ <% if logged_in? %>
+  <%= link_to 'New Paver', new_paver_path %>
+ <% end %> 
 </div>
 <br><br><br>
