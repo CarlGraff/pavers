@@ -1,3 +1,5 @@
+require "net/http"
+require "uri"
 class PaversController < ApplicationController
   before_action :set_paver, only: [:show, :edit, :update, :destroy]
 
@@ -20,6 +22,44 @@ class PaversController < ApplicationController
   # GET /pavers/new
   def new
     @paver = Paver.new
+  end
+
+  # GET /pavers/purcahse
+  def purchase
+    @paver = Paver.new
+    session[:tempemail] = "before_email"
+    #redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM8EDG9PJ6LEA"
+    #@paver.Email = response
+  end
+
+# GET /pavers/purcahse_create
+  def purchase_create
+    @paver = Paver.new(paver_params)
+    if @paver.valid?() || true
+      session[:tempemail] = paver_params     
+      redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GYHB5J5EVGEK2"
+    else
+      render :purchase
+    end  
+    # if @paver.save #and false
+    #   if paver_params[:Paver] == "4x8"
+    #     session[:tempemail] = paver_params
+    #     redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM8EDG9PJ6LEA"
+    #   else
+    #     #redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM8EDG9PJ6LEA"
+    #     render :purchase    
+    #   end
+    # else
+    #   render :purchase    
+    # end
+  end
+
+  def purchase_success
+    render :text => "success"
+  end
+
+  def purchase_cancel
+    render :text => "cancel"
   end
 
   # GET /pavers/1/edit

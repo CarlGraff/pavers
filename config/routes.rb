@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  get  '/purchase',  to: 'pavers#purchase'
+  post '/purchase',  to: 'pavers#purchase_create'
+  get  '/purchase_success',  to: 'pavers#purchase_success'
+  get  '/purchase_cancel',  to: 'pavers#purchase_cancel'
   resources :users, :pavers
 end

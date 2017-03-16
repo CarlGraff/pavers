@@ -1,0 +1,16 @@
+<% content_for :js do %>
+  <script>
+   $(".foo_me").click(function() {
+  alert("only runs on the contact page!")
+})
+
+  </script>
+<% end %>
+
+<h1>Purchase Paver</h1>
+<%= render 'purchase' %>
+<div style="float:left;"> 
+  <%= button_to "Cancel", root_path, :id => "purchase-dailog-btn",
+        :class => "btn btn-warning btn-sm", :method => :get %>
+
+</div> 
