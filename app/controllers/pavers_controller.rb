@@ -2,6 +2,7 @@ require "net/http"
 require "uri"
 class PaversController < ApplicationController
   before_action :set_paver, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /pavers
   # GET /pavers.json
@@ -26,52 +27,59 @@ class PaversController < ApplicationController
 
   # GET /pavers/purcahse
   def purchase
+    session[:paver_params] = "empty"  
     @paver = Paver.new
-    session[:tempemail] = "before_email"
-    #redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM8EDG9PJ6LEA"
-    #@paver.Email = response
   end
 
 # GET /pavers/purcahse_create
   def purchase_create
     @paver = Paver.new(paver_params)
-    if @paver.valid?() || true
-      session[:tempemail] = paver_params     
-      redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GYHB5J5EVGEK2"
+    #debugger
+    if @paver.valid?()
+      session[:paver_params] = paver_params  
+      if Rails.env.development?   
+        redirect_to action: "paypal_shim"
+      else
+        redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GYHB5J5EVGEK2"        
+      end
     else
       render :purchase
     end  
-    # if @paver.save #and false
-    #   if paver_params[:Paver] == "4x8"
-    #     session[:tempemail] = paver_params
-    #     redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM8EDG9PJ6LEA"
-    #   else
-    #     #redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM8EDG9PJ6LEA"
-    #     render :purchase    
-    #   end
-    # else
-    #   render :purchase    
-    # end
   end
 
+  def paypal_shim
+     #render :text => "paypal_shim"
+  end
+
+
   def purchase_success
-    render :text => "success"
+    @paver = Paver.new(session[:paver_params])
+
+    respond_to do |format|
+      if @paver.save
+        format.html { redirect_to @paver, notice: 'Paver was successfully created.' }
+        format.json { render :show, status: :created, location: @paver }
+      else
+        format.html { render :new }
+        format.json { render json: @paver.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def purchase_cancel
-    render :text => "cancel"
+    flash[:notice] = "Paver was was Canceled."
+    redirect_to root_path
   end
 
   # GET /pavers/1/edit
-  def edit
-    
+  def edit 
   end
 
   # POST /pavers
   # POST /pavers.json
   def create
     @paver = Paver.new(paver_params)
-
+    #debugger
     respond_to do |format|
       if @paver.save
         format.html { redirect_to @paver, notice: 'Paver was successfully created.' }
@@ -115,7 +123,8 @@ class PaversController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paver_params
-      params.require(:paver).permit(:Name, :Logo, :Line1, :Line2, :Line3, :Line4, :Line5, :Paver, :Placement, :Row, :Col, :Install_Date, :Email, :PayPal_ID)
+      params.require(:paver).permit(:Name, :Logo, :Line1, :Line2, :Line3, :Line4, :Line5, :Paver, :Placement, :Row, :Col,
+                                    :Install_Date, :Email, :PayPal_ID)
     end
 
 end

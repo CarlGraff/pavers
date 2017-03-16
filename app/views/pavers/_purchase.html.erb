@@ -21,7 +21,7 @@
   <div class="form-group", style="padding-left: 15px;">
   <%= f.label :Paver, class: "control-label" %>
   <%= f.select :Paver,
-        [['4 x 8 ','4x8'],['8x8 (1 Logo + 4 text lines)','8x8-4'],['8x8 (5 text lines)','8x8-5']],
+        [['4 x 8 (3 text lines) $50','4x8'],['8x8 (1 Logo + 4 text lines) $100','8x8-4'],['8x8 (5 text lines) $100','8x8-5']],
         class: "form-control" %>
  </div>
   <div class="form-group", style="padding-left: 15px;">
@@ -57,6 +57,14 @@
   </div><br />
   
   <div class="actions">
-    <%= f.submit "Purchase Selected", :class => "btn btn-success btn-sm" %>
+  <!--  <%= f.submit "Purchase Selected", :class => "btn btn-success btn-sm" %>  -->
+  <!--  <%= f.submit "Purchase Selected", :type => :image, :src => image_path("https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif") %> -->
+   <%= f.submit(type: "image", alt: "Purchase Selected", 
+       src: image_url("https://www.paypalobjects.com/webstatic/en_US/i/btn/png/gold-rect-paypalcheckout-60px.png")) %>
   </div>
 <% end %>
+
+
+<!-- <img src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/btn_buynow_cc_171x47.png" alt="Buy Now With Credit Cards">
+<img src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/gold-rect-paypalcheckout-60px.png" alt="PayPal Checkout">
+ -->

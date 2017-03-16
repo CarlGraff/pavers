@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   post '/purchase',  to: 'pavers#purchase_create'
   get  '/purchase_success',  to: 'pavers#purchase_success'
   get  '/purchase_cancel',  to: 'pavers#purchase_cancel'
+  get  '/paypal_shim',  to: 'pavers#paypal_shim'
   resources :users, :pavers
 end
