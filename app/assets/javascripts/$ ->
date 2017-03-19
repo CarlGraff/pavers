@@ -1,0 +1,37 @@
+$ ->
+  $('#paver_Paver').change ->
+  	switch $('#paver_Paver').val()
+  		when "4x8"
+	  		if($('#logged_in').length == 0)
+		  	 	$('#Logo').hide()
+		    	$('#Line4').hide()
+		    	$('#Line5').hide()
+		    else
+		    	$('#Logo').show()
+		    	$('#Line4').show()
+		    	$('#Line5').show()
+		    	$('#logo').css("color": "grey")
+	    		$('#logo').css("background-color": "lightgrey")
+	    		$('#Line4').css("color": "grey")
+	    		$('#paver_Line4').css("background-color": "lightgrey")
+	    		$('#Line5').css("color": "grey")
+	    		$('#paver_Line5').css("background-color": "lightgrey")
+    	
+    	when "8x8-4"
+    		if($('#logged_in').length == 0)
+	    		$('#Logo').show()
+		    	$('#Line4').show()
+		    	$('#Line5').hide()
+		    else	$('#Logo').show()
+		    	$('#Line4').show()
+		    	$('#Line5').show()
+		    	$('#logo').css("color": "grey")
+	    		$('#logo').css("background-color": "lightgrey")
+	    		$('#Line5').css("color": "grey")
+	    		$('#paver_Line5').css("background-color": "lightgrey")
+    	    		
+	    else
+	    	alert("must be 5 lines")			
+
+
+      

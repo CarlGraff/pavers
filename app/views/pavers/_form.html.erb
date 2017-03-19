@@ -30,13 +30,12 @@
         ['Gulf War','Gulf War'],['Iraq','Iraq'],['Afghanistan','Afghanistan'],
         ['Purple Heart','Purple Heart'],['Women in Service','Women in Service'],['POW/MIA','POW/MIA']],
         class: "form-control"  %> 
-</div>
- <div class="form-group", style="padding-left: 15px;">
+  </div>
+  <div class="form-group", style="padding-left: 15px;">
   <%= f.label :Name, "First and Last ( e.g. James Smith )", class: "control-label" %>
   <%= f.text_field :Name, :size => 50, :maxlength => 50 %>   
  </div>
-
-  <div class="form-group", style="padding-left: 15px;">
+  <div id="Logo" class="form-group", style="padding-left: 15px; id=Logo">
     <%= f.label :Logo, class: "control-label" %>
     <%= f.select :Logo,
           [['None','None'],['Army','Army'],['Marine Corp','Marine Corp'],['Navy','Navy'],
@@ -53,7 +52,7 @@
   <%= render :partial => "my_field_format", :locals=>{:f => f, :fn => "Col", :rws => 1, :sample_txt => "Column B"} %> 
   
   <% if logged_in? %>
-  <div class="form-group", style="padding-left: 15px;"><br /><br />
+  <div id=logged_in class="form-group", style="padding-left: 15px;"><br /><br />
     <%= f.label :PayPal_ID, class: "control-label" %>
     <%= f.text_field :PayPal_ID, :size => 20, :maxlength => 20 %>   
     <%= f.label :Email, class: "control-label" %>
