@@ -18,22 +18,29 @@ setObjAttr =(object, isOn) ->
       $('#'+object).hide()
 
 setObjects = ->
-  if $('#paver_Paver').val() == "4x8"
+  selectedval = $(".paver_radio:checked").val()
+  #alert $(".paver_radio:checked").val()
+  if selectedval == "4x8"
       setObjAttr("Logo", false) 
       setObjAttr("Line4", false) 
       setObjAttr("Line5", false) 
-    if $('#paver_Paver').val() == "8x8-4"
-      setObjAttr("Logo", true) 
-      setObjAttr("Line4", true) 
-      setObjAttr("Line5", false) 
-    if $('#paver_Paver').val() == "8x8-5"
+   else
       setObjAttr("Logo", false) 
-      setObjAttr("Line4", true) 
-      setObjAttr("Line5", true)   
+      setObjAttr("Line4", false) 
+      setObjAttr("Line5", false) 
+  if selectedval == "8x8-4"
+    setObjAttr("Logo", true) 
+    setObjAttr("Line4", true) 
+    setObjAttr("Line5", false) 
+  if selectedval == "8x8-5"
+    setObjAttr("Logo", false) 
+    setObjAttr("Line4", true) 
+    setObjAttr("Line5", true)   
 
 ready = ->
+  #alert $(".paver_radio:checked").val()
   setObjects()
-  $('#paver_Paver').change ->
+  $(".paver_radio").change ->
     setObjects()  
 
 $(document).ready(ready)
