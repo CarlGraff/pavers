@@ -14,7 +14,7 @@
 <body class="foo_me">
 <div class="container">
 	<% flash.each do |message_type, message| %>
-		<% if !message.include?("Paver was") %>
+		<% if !message.include?("Paver") %>
 	        <div class="alert alert-<%= message_type %>"><%= message %></div>
 	    <% end %>
 	<% end %>

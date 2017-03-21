@@ -71,6 +71,18 @@ class PaversController < ApplicationController
     redirect_to root_path
   end
 
+  def prompt_for_edit
+    #debugger
+    current = Paver.find(params[:format]) 
+    if (current.Email == params[:Email_Prompt])
+      redirect_to edit_paver_path(params[:format])
+    else
+      #redirect_to show_paver_path(params[:format])
+      flash[:notice] = "Paver: Incorrect Email entered to enable Editing."
+      redirect_to paver_path(params[:format])
+    end
+  end
+
   # GET /pavers/1/edit
   def edit 
   end
@@ -124,7 +136,7 @@ class PaversController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def paver_params
       params.require(:paver).permit(:Name, :Logo, :Line1, :Line2, :Line3, :Line4, :Line5, :Paver, :Placement, :Row, :Col,
-                                    :Install_Date, :Email, :PayPal_ID)
+                                    :Install_Date, :Email, :PayPal_ID, :Email_Prompt)
     end
 
 end
