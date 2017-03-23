@@ -6,8 +6,23 @@ div.wrapperx{
 }
 div.descriptionx{
     position:absolute; /* absolute position (so we can position it where we want)*/
-    top:40px; /* position will be on bottom */
-    left:30px;
+    top:calc(30% - 24px); /* position will be on bottom */
+    left:10px;
+    text-align: center;
+    width:100%;
+    /* styling bellow */
+    background-color:transparent;
+    font-family: 'tahoma';
+    /*font-size:15px;*/
+    color:black;
+    opacity:0.9; /* transparency */
+    filter:alpha(opacity=60); /* IE transparency */
+    line-height: .5;
+}
+div.descriptionx2{
+    position:absolute; /* absolute position (so we can position it where we want)*/
+    top:calc(20% - 24px); /* position will be on bottom */
+    left:1px;
     text-align: center;
     width:100%;
     /* styling bellow */
@@ -33,13 +48,19 @@ h2.description_contenty{
 }
 </style>
 
-
+<div class="container">
 <div class='wrapperx'>
 <div class="img-rounded" >
-   <img class="img-responsive" src="../brick.jpg" width="1200" border="0"/>
-   <div class='descriptionx'>
-     <!-- <h2 class='description_contenty'> Paver Contents </h2> -->
- <!--     <h2 class='description_contenty'> Name: <%= @paver.Name %> </h2> -->
+    <% if @paver.Paver == "4x8" %>
+    <img class="img-responsive" src="../brick.jpg" width="600" border="0"/>
+    <div class='descriptionx'>
+   <% else %>
+    <img class="img-responsive" src="../brick8x8.jpg" width="600" border="0"/>
+    <div class='descriptionx2'>
+   <% end %> 
+     <% if @paver.Paver == "8x8-4" %>
+     <center><img class="img-responsive" width="177" src="../navy.jpg" style="margin-bottom: 20px;" /></center>
+     <% end %> 
      <h2 class='description_contenty'> <%= @paver.Line1 %> </h2>
      <h2 class='description_contenty'> <%= @paver.Line2 %> </h2>
      <h2 class='description_contenty'> <%= @paver.Line3 %> </h2>
@@ -49,22 +70,23 @@ h2.description_contenty{
    <!--   <h2 class='description_contenty'> Placement: <%= @paver.Placement %> </h2> -->
    <!--   <h2 class='description_contenty'> Row: <%= @paver.Row %> </h2> -->
    <!--   <h2 class='description_contenty'> Col: <%= @paver.Col %> </h2> -->
-   </div>
+</div>
 </div>
 </div>
 
+<div class="container", style="padding-top: 20px; float:left; /* important */">
 <% if logged_in? %> 
-    <%= link_to 'Edit', edit_paver_path(@paver) %> | 
-<% else %> 
-
+    <%= link_to 'Edit Paver', edit_paver_path(@paver), :class => "btn btn-default btn-md" %>
+    <%= link_to "Back to Search", pavers_path, :class => "btn btn-info btn-md" %>
+<% else %>
   <%= form_for(@paver, url: prompt_for_edit_path(@paver), :method => :POST) do |f| %>
-    Enter Email Adress to Edit
-    <%= text_field_tag "Email_Prompt" %>
-    <%= f.submit "Edit" %>
+    <%= label_tag 'Enter Email Adress to Edit' %>    
+    <%= text_field_tag "Email_Prompt", '', size: 50 %>
+    <%= f.submit "Edit Paver", :class => "btn btn-default btn-sm" %>
+    <%= link_to "Back to Search", pavers_path, :class => "btn btn-info btn-sm" %>
     <% end  %>
 <% end -%> 
-<%= link_to "Back", pavers_path %>
-
+</div>
 
 
 

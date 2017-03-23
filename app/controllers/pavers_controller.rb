@@ -7,11 +7,11 @@ class PaversController < ApplicationController
   # GET /pavers
   # GET /pavers.json
   def index
-    @pavers = Paver.all
+    @pavers = Paver.all.sort_by{|m| m.Name}
     if params[:search]
-        @pavers = Paver.search(params[:search]).order("created_at DESC")
+        @pavers = Paver.search(params[:search]).order("Name")
         else
-        @pavers = Paver.where("Name = 'XYZ'")
+        @pavers = Paver.where("Name = 'XYZ'").order("Name")
     end
   end
 
@@ -38,9 +38,25 @@ class PaversController < ApplicationController
     if @paver.valid?()
       session[:paver_params] = paver_params  
       if Rails.env.development?   
-        redirect_to action: "paypal_shim"
+        if @paver[Paver] == "4x8"
+          redirect_to action: "paypal_shim"
+        elsif @paver[Paver] == "8x8-4"
+          redirect_to action: "paypal_shim"
+        elsif @paver[Paver] == "8x8-5"      
+          redirect_to action: "paypal_shim"
+        else
+          render :purchase
+        end
       else
-        redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GYHB5J5EVGEK2"        
+        if @paver[Paver] == "4x8"
+          redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GYHB5J5EVGEK2"  
+        elsif @paver[Paver] == "8x8-4"
+          redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=T6KKJZ6MVMN7C"
+         elsif @paver[Paver] == "8x8-5"   
+          redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JB9F49XD5Z2NC"
+        else
+          render :purchase
+        end
       end
     else
       render :purchase
