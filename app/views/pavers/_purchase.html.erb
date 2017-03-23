@@ -33,6 +33,16 @@
   </div>
   </div>
 
+  <div class="form-group", style="padding-left: 15px;">
+  <%= f.label :Purchaser, "Purchaser Name ( e.g. Robert Smith )", class: "control-label" %>
+  <%= f.text_field :Purchaser, :size => 50, :maxlength => 50 %>   
+ </div>
+
+  <div class="form-group", style="padding-left: 15px;">
+  <%= f.label :Name, "Deceased Name ( e.g. James Smith )", class: "control-label" %>
+  <%= f.text_field :Name, :size => 51, :maxlength => 51 %>   
+  </div>
+ 
 
   <div class="form-group", style="padding-left: 15px;">
   <%= f.label :Placement, class: "control-label" %>
@@ -41,11 +51,8 @@
         ['Gulf War','Gulf War'],['Iraq','Iraq'],['Afghanistan','Afghanistan'],
         ['Purple Heart','Purple Heart'],['Women in Service','Women in Service'],['POW/MIA','POW/MIA']],
         class: "form-control"  %> 
-</div>
- <div class="form-group", style="padding-left: 15px;">
-  <%= f.label :Name, "First and Last ( e.g. James Smith )", class: "control-label" %>
-  <%= f.text_field :Name, :size => 50, :maxlength => 50 %>   
- </div>
+  </div>
+ 
 
   <div id="Logo" class="form-group", style="padding-left: 15px;">
     <%= f.label :Logo, class: "control-label" %>

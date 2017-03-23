@@ -90,7 +90,7 @@ class PaversController < ApplicationController
   def prompt_for_edit
     #debugger
     current = Paver.find(params[:format]) 
-    if (current.Email == params[:Email_Prompt])
+    if (current.Email.downcase == params[:Email_Prompt].downcase)
       redirect_to edit_paver_path(params[:format])
     else
       #redirect_to show_paver_path(params[:format])
@@ -152,7 +152,7 @@ class PaversController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def paver_params
       params.require(:paver).permit(:Name, :Logo, :Line1, :Line2, :Line3, :Line4, :Line5, :Paver, :Placement, :Row, :Col,
-                                    :Install_Date, :Email, :PayPal_ID, :Email_Prompt)
+                                    :Install_Date, :Purchaser, :Email, :PayPal_ID, :Email_Prompt)
     end
 
 end
